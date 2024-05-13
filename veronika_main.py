@@ -32,7 +32,7 @@ def load(file_path: str, **context) -> None:
 task_extract = PythonOperator(
     task_id="extract",
     python_callable=extract,
-    op_kwargs={"file_path": "profit_table.csv"},
+    op_kwargs={"file_path": "dags/profit_table.csv"},
     dag=dag,
     provide_context=True,
 )
@@ -44,7 +44,7 @@ task_transform = PythonOperator(
 task_load = PythonOperator(
     task_id="load",
     python_callable=load,
-    op_kwargs={"file_path": "flags_activity.csv"},
+    op_kwargs={"file_path": "dags/flags_activity.csv"},
     dag=dag,
     provide_context=True,
 )
